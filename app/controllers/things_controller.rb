@@ -5,19 +5,17 @@ class ThingsController < ApplicationController
     @things = Thing.where(user_id: current_user)
   end
 
-  def show
-  end
-  
+  def show; end
+
   def new
     @thing = current_user.things.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @thing = current_user.things.build(thing_params)
-  
+
     if @thing.save
       flash[:notice] = 'Huzzah! Saved your thing! 😜'
       redirect_to @thing
@@ -46,8 +44,8 @@ class ThingsController < ApplicationController
       redirect_to @thing
     end
   end
- 
-private
+
+  private
 
   def find_thing
     @thing = Thing.find(params[:id])
