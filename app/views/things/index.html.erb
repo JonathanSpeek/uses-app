@@ -3,6 +3,11 @@
   <% @things.each do |thing| %>
     <li>
       <%= link_to thing.text, thing.link, :target => "_blank" %>
+      <%= link_to 'Show', thing_path(thing) %>
+      <%= link_to 'Edit', edit_thing_path(thing) %>
+      <%= link_to 'Delete', thing_path(thing),
+          method: :delete,
+          data: { confirm: 'Are you sure?' } %>
     </li>
   <% end %>
   <%= link_to 'New thing', new_thing_path %>

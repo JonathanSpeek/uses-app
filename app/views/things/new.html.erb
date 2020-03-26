@@ -1,18 +1,4 @@
 <h1>New thing</h1>
-<%= form_with scope: :thing, url: things_path, local: true do |form| %>
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_field :text %>
-  </p>
-
-  <p>
-    <%= form.label :link %><br>
-    <%= form.text_field :link %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
-
+<%= render 'form' %>
+ 
 <%= link_to 'Back', things_path %>

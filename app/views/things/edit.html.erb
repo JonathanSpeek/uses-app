@@ -1,0 +1,7 @@
+<h1>Edit thing</h1>
+<%= render 'form' %>
+
+<%= link_to 'Delete', thing_path(thing),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', things_path %>
