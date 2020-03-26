@@ -1,0 +1,9 @@
+<h1>All the things</h1>
+<ul>
+  <% @things.each do |thing| %>
+    <li>
+      <%= link_to thing.text, thing.link, :target => "_blank" %>
+    </li>
+  <% end %>
+  <%= link_to 'New thing', new_thing_path %>
+</ul>
