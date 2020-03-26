@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :things
 
+  get 'auth/:provider/callback', to: 'sessions#create'
+
   root 'welcome#index'
 end
