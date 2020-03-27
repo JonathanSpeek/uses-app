@@ -1,5 +1,5 @@
 class ThingsController < ApplicationController
-  before_action :find_thing, only: [:show, :edit, :update, :destroy]
+  before_action :find_thing, only: %i[show edit update destroy upvote undo_upvote]
 
   def index
     @things = Thing.where(user_id: current_user)
@@ -43,6 +43,20 @@ class ThingsController < ApplicationController
       flash[:notice] = 'Hmm... Something went wrong. 🤔'
       redirect_to @thing
     end
+  end
+
+  def upvote
+    upvote = @thing.upvotes.find_or_create_by(user: current_user)
+    upvote.save
+    Thing.increment_counter(:up_votes, @thing.id)
+    redirect_to things_path
+  end
+
+  def undo_upvote
+    upvote = @thing.upvotes.find_by(user: current_user)
+    upvote.destroy
+    Thing.decrement_counter(:up_votes, @thing.id)
+    redirect_to things_path
   end
 
   private

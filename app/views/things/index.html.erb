@@ -3,6 +3,11 @@
   <% @things.each do |thing| %>
     <li>
       <%= link_to thing.text, thing.link, :target => "_blank" %>
+      <% if current_user.already_upvoted?(thing) %>
+        <%= link_to "Unlike",undo_upvote_thing_path(thing) %>
+      <% else %>
+        <%= link_to "Like",upvote_thing_path(thing) %>
+      <% end %>
       <%= link_to 'Show', thing_path(thing) %>
       <%= link_to 'Edit', edit_thing_path(thing) %>
       <%= link_to 'Delete', thing_path(thing),
