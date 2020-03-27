@@ -18,7 +18,7 @@ class ThingsController < ApplicationController
 
     if @thing.save
       flash[:notice] = 'Huzzah! Saved your thing! 😜'
-      redirect_to @thing
+      redirect_to things_path
     else
       flash[:notice] = 'Hmm... Something went wrong. 🤔'
       render 'new'
@@ -28,7 +28,7 @@ class ThingsController < ApplicationController
   def update
     if @thing.update(thing_params)
       flash[:notice] = 'Nice! Your thing was updated! 🙌'
-      redirect_to @thing
+      redirect_to things_path
     else
       flash[:notice] = 'Hmm... Something went wrong. 🤔'
       render 'edit'
@@ -41,7 +41,7 @@ class ThingsController < ApplicationController
       redirect_to things_path
     else
       flash[:notice] = 'Hmm... Something went wrong. 🤔'
-      redirect_to @thing
+      redirect_to things_path
     end
   end
 
