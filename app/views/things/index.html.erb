@@ -1,19 +1,20 @@
-<h1>All the things</h1>
+<h1>All your things</h1>
 <ul>
   <% @things.each do |thing| %>
     <li>
-      <%= link_to thing.text, thing.link, :target => "_blank" %>
+      <%= link_to thing.text, thing.link, target: '_blank', class: 'external-link' %>
       <% if current_user.already_upvoted?(thing) %>
         <%= link_to "Unlike",undo_upvote_thing_path(thing) %>
       <% else %>
         <%= link_to "Like",upvote_thing_path(thing) %>
       <% end %>
-      <%= link_to 'Show', thing_path(thing) %>
+
       <%= link_to 'Edit', edit_thing_path(thing) %>
       <%= link_to 'Delete', thing_path(thing),
           method: :delete,
           data: { confirm: 'Are you sure?' } %>
     </li>
   <% end %>
-  <%= link_to 'New thing', new_thing_path %>
 </ul>
+<br />
+<%= link_to 'Add a thing', new_thing_path, class: 'btn' %>

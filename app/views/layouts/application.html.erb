@@ -11,7 +11,10 @@
 
   <body>
     <% if current_user %>
-      <p>Signed in as <%= current_user.name %></p>
+      <p><%= current_user.name %></p>
+      <% if current_user.profile_image %>
+        <%= image_tag(current_user.profile_image, class: 'profile_image', size: '48x48', alt: current_user.name) %>
+      <% end %>
     <% end %>
     <%= yield %>
   </body>
