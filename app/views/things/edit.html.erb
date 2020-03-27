@@ -4,4 +4,4 @@
 <%= link_to 'Delete', thing_path(@thing),
     method: :delete,
     data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Back', things_path %>
+<%= link_to 'Back', things_path(:user_id => current_user) %>

@@ -1,3 +1,5 @@
 class WelcomeController < ApplicationController
-  def index; end
+  def index
+    @things = Thing.all.order('up_votes DESC')
+  end
 end

@@ -2,7 +2,7 @@ class ThingsController < ApplicationController
   before_action :find_thing, only: %i[show edit update destroy upvote undo_upvote]
 
   def index
-    @things = Thing.where(user_id: current_user)
+    @things = Thing.where(user_id: params[:user_id]).order('up_votes DESC')
   end
 
   def show; end
@@ -18,7 +18,7 @@ class ThingsController < ApplicationController
 
     if @thing.save
       flash[:notice] = 'Huzzah! Saved your thing! 😜'
-      redirect_to things_path
+      redirect_to things_path(user_id: current_user)
     else
       flash[:notice] = 'Hmm... Something went wrong. 🤔'
       render 'new'
@@ -28,7 +28,7 @@ class ThingsController < ApplicationController
   def update
     if @thing.update(thing_params)
       flash[:notice] = 'Nice! Your thing was updated! 🙌'
-      redirect_to things_path
+      redirect_to things_path(user_id: current_user)
     else
       flash[:notice] = 'Hmm... Something went wrong. 🤔'
       render 'edit'
@@ -38,10 +38,10 @@ class ThingsController < ApplicationController
   def destroy
     if @thing.destroy
       flash[:notice] = "☠️ RIP: #{@thing.text}"
-      redirect_to things_path
+      redirect_to things_path(user_id: current_user)
     else
       flash[:notice] = 'Hmm... Something went wrong. 🤔'
-      redirect_to things_path
+      redirect_to things_path(user_id: current_user)
     end
   end
 
@@ -49,14 +49,14 @@ class ThingsController < ApplicationController
     upvote = @thing.upvotes.find_or_create_by(user: current_user)
     upvote.save
     Thing.increment_counter(:up_votes, @thing.id)
-    redirect_to things_path
+    redirect_to root_path
   end
 
   def undo_upvote
     upvote = @thing.upvotes.find_by(user: current_user)
     upvote.destroy
     Thing.decrement_counter(:up_votes, @thing.id)
-    redirect_to things_path
+    redirect_to root_path
   end
 
   private
@@ -66,6 +66,6 @@ class ThingsController < ApplicationController
   end
 
   def thing_params
-    params.require(:thing).permit(:text, :link)
+    params.require(:thing).permit(:text, :link, :user_id)
   end
 end

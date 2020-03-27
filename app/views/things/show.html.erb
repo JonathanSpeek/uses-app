@@ -1,3 +1,3 @@
 <%= link_to @thing.text, @thing.link, :target => "_blank" %>
 <%= link_to 'Edit', edit_thing_path(@thing) %>
-<%= link_to 'Back', things_path %>
+<%= link_to 'Back', things_path(:user_id => current_user) %>

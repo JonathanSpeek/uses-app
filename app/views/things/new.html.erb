@@ -1,4 +1,4 @@
 <h1>New thing</h1>
 <%= render 'form' %>
  
-<%= link_to 'Back', things_path %>
+<%= link_to 'Back', things_path(:user_id => current_user) %>

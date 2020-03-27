@@ -8,7 +8,7 @@
   <ul>
   <% if current_user %>
     <% if current_user.profile_image %>
-      <li><%= link_to image_tag(current_user.profile_image, class: 'profile_image', size: '48x48', alt: current_user.name), {action: 'index', controller: 'things'}, {class: 'no-underline'} %></li>
+      <li><%= link_to image_tag(current_user.profile_image, class: 'profile_image', size: '48x48', alt: current_user.name), things_path(user_id: current_user), {class: 'no-underline'} %></li>
     <% end %>
   <% end %>
   </ul>
