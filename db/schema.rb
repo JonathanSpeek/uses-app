@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_033945) do
+ActiveRecord::Schema.define(version: 2020_03_28_225859) do
 
   create_table "things", force: :cascade do |t|
     t.string "text"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_033945) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.integer "up_votes"
+    t.integer "up_votes", default: 0
   end
 
   create_table "upvotes", force: :cascade do |t|
