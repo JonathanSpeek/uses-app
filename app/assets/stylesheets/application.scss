@@ -1,0 +1,258 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
+
+$primary-color: #212121;
+$secondary-color: #651fff;
+$focus-color: #651fff;
+$white: #fff;
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  color: $primary-color;
+  margin: 2em 3em;
+}
+
+a {
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+  color: $primary-color;
+  padding-bottom: 4px;
+  border-bottom: 2px solid $secondary-color;
+  transition: background .1s cubic-bezier(.33,.66,.66,1);
+
+  &:focus {
+    outline: 3px dotted $focus-color;
+    border-bottom: none;
+  }
+
+  &.no-underline {
+    padding-bottom: none;
+    border-bottom: none;
+  }
+
+  svg {
+    vertical-align: middle;
+  }
+}
+
+.external-link {
+  color: inherit;
+  font-weight: inherit;
+  margin: -8px 0;
+  outline: 0;
+  padding: 8px 0;
+  position: relative;
+
+  &::after {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IjI0IC8gYmFzaWMgLyBsaW5rIj4KPHBhdGggaWQ9Imljb24iIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTAgMTVWMTdINkMzLjIzODU4IDE3IDEgMTQuNzYxNCAxIDEyQzEgOS4yMzg1OCAzLjIzODU4IDcgNiA3SDEwVjlINkM0LjM0MzE1IDkgMyAxMC4zNDMxIDMgMTJDMyAxMy42NTY5IDQuMzQzMTUgMTUgNiAxNUgxMFpNMTQgOVY3SDE4QzIwLjc2MTQgNyAyMyA5LjIzODU4IDIzIDEyQzIzIDE0Ljc2MTQgMjAuNzYxNCAxNyAxOCAxN0gxNFYxNUgxOEMxOS42NTY5IDE1IDIxIDEzLjY1NjkgMjEgMTJDMjEgMTAuMzQzMSAxOS42NTY5IDkgMTggOUgxNFpNMTcgMTFIN1YxM0gxN1YxMVoiIGZpbGw9ImJsYWNrIi8+CjwvZz4KPC9zdmc+Cg==) no-repeat center;
+    background-size: 16px;
+    bottom: 0;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    content: "";
+    margin-top: 2px;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 24px;
+  }
+}
+
+.like {
+  color: inherit;
+  font-weight: inherit;
+  margin: -8px 0;
+  margin-right: 1.5em;
+  outline: 0;
+  padding: 8px 0;
+  position: relative;
+
+  &::after {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IjI0IC8gYmFzaWMgLyBoZWFydCI+CjxwYXRoIGlkPSJpY29uIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE2LjU1MzIgMi4wMDAwMkMxNS4xMDU2IDIgMTQuMTcyNCAyLjE3MjQ2IDEzLjEwMjcgMi42OTYwN0MxMi43MDY2IDIuODg5OTMgMTIuMzM1IDMuMTIzMzkgMTEuOTkgMy4zOTU3NkMxMS42NTgyIDMuMTM4NjYgMTEuMzAxNSAyLjkxNTkyIDEwLjkyMTggMi43MjgxM0M5LjgzMTMyIDIuMTg4NzggOC44NTAyOCAyIDcuNDU0NTUgMkMzLjcxNjQ0IDIgMSA1LjA5NzI3IDEgOS4xMTk4OEMxIDEyLjE1NzggMi42OTM4MyAxNS4wOTIzIDUuODQ4ODQgMTcuOTI5OUM3LjUwNDg5IDE5LjQxOTMgOS42MTkzMiAyMC44OTMzIDExLjEzMzYgMjEuNjc3NUwxMiAyMi4xMjYxTDEyLjg2NjQgMjEuNjc3NUMxNC4zODA3IDIwLjg5MzMgMTYuNDk1MSAxOS40MTkzIDE4LjE1MTIgMTcuOTI5OUMyMS4zMDYyIDE1LjA5MjMgMjMgMTIuMTU3OCAyMyA5LjExOTg4QzIzIDUuMTM5ODQgMjAuMjU3OSAyLjAxNTM2IDE2LjU1MzIgMi4wMDAwMlpNMjEgOS4xMTk4OEMyMSAxMS40OTk5IDE5LjU4NjIgMTMuOTQ5MyAxNi44MTM3IDE2LjQ0MjlDMTUuMzAyMiAxNy44MDIzIDEzLjM1OSAxOS4xNjA5IDEyIDE5Ljg3MzdDMTAuNjQxIDE5LjE2MDkgOC42OTc4MiAxNy44MDIzIDcuMTg2MjggMTYuNDQyOUM0LjQxMzgyIDEzLjk0OTMgMyAxMS40OTk5IDMgOS4xMTk4OEMzIDYuMTQ3NzIgNC44ODM2NCA0IDcuNDU0NTUgNEM4LjU2NDI4IDQgOS4yNDgxMyA0LjEzMTU5IDEwLjAzNTEgNC41MjA4NEMxMC41IDQuNzUwNzcgMTAuOTEwOSA1LjA1NDM3IDExLjI2NjUgNS40MzM3N0wxMi4wMDIzIDYuMjE4N0wxMi43MzE1IDUuNDI3NTVDMTMuMDk1MSA1LjAzMjk1IDEzLjUxMiA0LjcyMjQ0IDEzLjk4MTkgNC40OTI0M0MxNC43NDU5IDQuMTE4NDkgMTUuMzg3IDQgMTYuNTQ5MSA0LjAwMDAxQzE5LjA4ODIgNC4wMTA1MyAyMSA2LjE4ODk2IDIxIDkuMTE5ODhaIiBmaWxsPSJibGFjayIvPgo8L2c+Cjwvc3ZnPgo=) no-repeat center;
+    background-size: 16px;
+    bottom: 0;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    content: "";
+    margin-top: 2px;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 24px;
+  }
+
+  &:hover::after {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMiAyMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNS41NTMyIDEuNjEwMThlLTA1QzE0LjEwNTYgMCAxMy4xNzI0IDAuMTcyNDY0IDEyLjEwMjcgMC42OTYwNzNDMTEuNzA2NiAwLjg4OTkzIDExLjMzNSAxLjEyMzM5IDEwLjk5IDEuMzk1NzZDMTAuNjU4MiAxLjEzODY2IDEwLjMwMTUgMC45MTU5MTggOS45MjE4MSAwLjcyODEzNEM4LjgzMTMyIDAuMTg4Nzc1IDcuODUwMjggMCA2LjQ1NDU1IDBDMi43MTY0NCAwIDAgMy4wOTcyNyAwIDcuMTE5ODhDMCAxMC4xNTc4IDEuNjkzODMgMTMuMDkyMyA0Ljg0ODg0IDE1LjkyOTlDNi41MDQ4OSAxNy40MTkzIDguNjE5MzIgMTguODkzMyAxMC4xMzM2IDE5LjY3NzVMMTEgMjAuMTI2MUwxMS44NjY0IDE5LjY3NzVDMTMuMzgwNyAxOC44OTMzIDE1LjQ5NTEgMTcuNDE5MyAxNy4xNTEyIDE1LjkyOTlDMjAuMzA2MiAxMy4wOTIzIDIyIDEwLjE1NzggMjIgNy4xMTk4OEMyMiAzLjEzOTg0IDE5LjI1NzkgMC4wMTUzNTgzIDE1LjU1MzIgMS42MTAxOGUtMDVaIiBmaWxsPSIjRUUxQjRCIi8+Cjwvc3ZnPgo=) no-repeat center;
+    background-size: 16px;
+  }
+}
+
+.unlike {
+  color: inherit;
+  font-weight: inherit;
+  margin: -8px 0;
+  margin-right: 1.5em;
+  outline: 0;
+  padding: 8px 0;
+  position: relative;
+
+  &::after {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMiAyMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNS41NTMyIDEuNjEwMThlLTA1QzE0LjEwNTYgMCAxMy4xNzI0IDAuMTcyNDY0IDEyLjEwMjcgMC42OTYwNzNDMTEuNzA2NiAwLjg4OTkzIDExLjMzNSAxLjEyMzM5IDEwLjk5IDEuMzk1NzZDMTAuNjU4MiAxLjEzODY2IDEwLjMwMTUgMC45MTU5MTggOS45MjE4MSAwLjcyODEzNEM4LjgzMTMyIDAuMTg4Nzc1IDcuODUwMjggMCA2LjQ1NDU1IDBDMi43MTY0NCAwIDAgMy4wOTcyNyAwIDcuMTE5ODhDMCAxMC4xNTc4IDEuNjkzODMgMTMuMDkyMyA0Ljg0ODg0IDE1LjkyOTlDNi41MDQ4OSAxNy40MTkzIDguNjE5MzIgMTguODkzMyAxMC4xMzM2IDE5LjY3NzVMMTEgMjAuMTI2MUwxMS44NjY0IDE5LjY3NzVDMTMuMzgwNyAxOC44OTMzIDE1LjQ5NTEgMTcuNDE5MyAxNy4xNTEyIDE1LjkyOTlDMjAuMzA2MiAxMy4wOTIzIDIyIDEwLjE1NzggMjIgNy4xMTk4OEMyMiAzLjEzOTg0IDE5LjI1NzkgMC4wMTUzNTgzIDE1LjU1MzIgMS42MTAxOGUtMDVaIiBmaWxsPSIjRUUxQjRCIi8+Cjwvc3ZnPgo=) no-repeat center;
+    background-size: 16px;
+    bottom: 0;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    content: "";
+    margin-top: 2px;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 24px;
+  }
+
+  &:hover::after {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9IjI0IC8gYmFzaWMgLyBoZWFydC1ubyI+CjxwYXRoIGlkPSJpY29uIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTIuNDE0MjQgMS4yOTI5MUwxLjAwMDAyIDIuNzA3MTJMMi40Mzg5OCA0LjE0NjA4QzEuMzEwMjkgNS40MTQ4MiAwLjY0MzMxMSA3LjE1NTgyIDAuNjQzMzExIDkuMTE5ODlDMC42NDMzMTEgMTIuMTY3MSAyLjM5ODkxIDE1LjEwMzkgNS42NjYzMyAxNy45NDE0QzcuMzc5NTIgMTkuNDI5MiA5LjU2Njc3IDIwLjkwMTQgMTEuMTMxOCAyMS42ODM5TDEyIDIyLjExOEwxMi44NjgzIDIxLjY4MzlDMTQuMDk4NiAyMS4wNjg4IDE1LjcxMzQgMjAuMDI3NCAxNy4xODAyIDE4Ljg4NzNMMjEgMjIuNzA3MUwyMi40MTQyIDIxLjI5MjlMMi40MTQyNCAxLjI5MjkxWk0xNS43NTQxIDE3LjQ2MTJMMy44NTY2NSA1LjU2Mzc1QzMuMDkyNTUgNi40NjQ0NiAyLjY0MzMxIDcuNjk5MDkgMi42NDMzMSA5LjExOTg5QzIuNjQzMzEgMTEuNDkwNSA0LjEwNjIyIDEzLjkzNzcgNi45Nzc3IDE2LjQzMTRDOC41NTU5MSAxNy44MDE5IDEwLjU4OCAxOS4xNzE2IDEyIDE5Ljg4MTlDMTMuMDU0NiAxOS4zNTE0IDE0LjQ1NTIgMTguNDUzIDE1Ljc1NDEgMTcuNDYxMlpNMjEuMzU2NyA5LjExOTg5QzIxLjM1NjcgMTAuOTY4NyAyMC40NjY5IDEyLjg2NDEgMTguNzEzMSAxNC43OTE4TDIwLjEyODggMTYuMjA3NEMyMi4yMzk1IDEzLjkxMTQgMjMuMzU2NyAxMS41NTA4IDIzLjM1NjcgOS4xMTk4OUMyMy4zNTY3IDUuMTMzMDUgMjAuNTIzIDIuMDE1MjYgMTYuNzE1NCAyLjAwMDAzQzE1LjIyNTcgMi4wMDAwMSAxNC4yNjkxIDIuMTcwNzMgMTMuMTcgMi42OTAxNUMxMi43NDkzIDIuODg4OTggMTIuMzU1MiAzLjEyOTk0IDExLjk5IDMuNDEyMzhDMTEuNjM4MiAzLjE0NTM2IDExLjI1OTIgMi45MTUwOCAxMC44NTUyIDIuNzIyMTJDOS43MzQ1MyAyLjE4Njk1IDguNzI4NDEgMi4wMDAwMSA3LjI5MjQzIDIuMDAwMDFDNi44NTk2MiAyLjAwMDAxIDYuNDM5OTQgMi4wMzkyNCA2LjAzNTkzIDIuMTE0Nkw3LjkzODMyIDQuMDE2OTlDOC43NDIzMyA0LjA2MzY3IDkuMzMzOTUgNC4yMTIwMSA5Ljk5MzI4IDQuNTI2ODhDMTAuNDc5MyA0Ljc1ODk3IDEwLjkwODEgNS4wNjQ5NSAxMS4yNzg1IDUuNDQ2NDVMMTIuMDAyMSA2LjE5MThMMTIuNzE5NCA1LjQ0MDMyQzEzLjA5OCA1LjA0MzU5IDEzLjUzMzIgNC43MzA2MiAxNC4wMjQ2IDQuNDk4MzhDMTQuODI0NyA0LjEyMDI1IDE1LjQ5ODUgNC4wMDAwMSAxNi43MTE0IDQuMDAwMDJDMTkuMzcwNyA0LjAxMDY2IDIxLjM1NjcgNi4xOTU3OSAyMS4zNTY3IDkuMTE5ODlaIiBmaWxsPSJibGFjayIvPgo8L2c+Cjwvc3ZnPgo=) no-repeat center;
+    background-size: 16px;
+  }
+}
+
+ul {
+  margin-bottom: 2em;
+  list-style: none;
+}
+
+li {
+  line-height: 2;
+
+  a {
+    margin-right: .5em;
+  }
+
+  .external-link {
+    margin-right: 2.5em;
+  }
+}
+
+button, .btn {
+  background-color: $secondary-color;
+  color: $white;
+  border-radius: 6px;
+  font-weight: 500;
+  outline: 0;
+  padding: 8px;
+  width: auto;
+  text-decoration: none;
+  align-self: center;
+  vertical-align: middle;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: 3px dotted $focus-color;
+    border-bottom: none;
+  }
+
+  .btn-icon {
+    vertical-align: middle;
+  }
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: none;
+  border: 2px solid hsl(180, 05%, 92%);
+  border-radius: 6px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: hsl(198, 45%, 10%);
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 24px;
+  margin: 0;
+  padding: 6px 14px;
+  width: 100%;
+
+  &:focus, &:hover {
+    border-color: $focus-color;
+    -webkit-box-shadow: 0 0 1px 0 $focus-color;
+    box-shadow: 0 0 1px 0 $focus-color;
+    outline: none;
+  }
+}
+
+label {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.form {
+  max-width: 40vw;
+  @media screen and (max-width: 580px) {
+    max-width: 80vw;
+  }
+}
+
+// Helper things
+.sr-only {
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+// Navigation things
+nav {
+  display: flex;
+  justify-content: space-between;
+
+  .logo, a {
+    display: inline-block;
+    height: 48px;
+  }
+
+  li {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.profile_image {
+  border-radius: 50%;
+  border: 2px solid $primary-color;
+  vertical-align: middle;
+}
