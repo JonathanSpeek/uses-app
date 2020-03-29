@@ -32,7 +32,3 @@
     </li>
   <% end %>
 </ul>
-<br />
-<% if current_user == @things.last.user %>
-  <%= link_to 'Add a thing', new_thing_path, class: 'btn' %>
-<% end %>
