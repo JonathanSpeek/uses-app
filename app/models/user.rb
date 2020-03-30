@@ -13,6 +13,6 @@ class User < ApplicationRecord
   end
 
   def already_upvoted?(thing)
-    User.joins(:upvotes).where(:upvotes => {:thing_id => thing.id}).size > 0
+    User.joins(:upvotes).where(upvotes: { thing_id: thing.id }).size > 0
   end
 end

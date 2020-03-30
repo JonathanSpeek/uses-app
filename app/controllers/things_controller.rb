@@ -2,7 +2,7 @@ class ThingsController < ApplicationController
   before_action :find_thing, only: %i[show edit update destroy upvote undo_upvote]
 
   def index
-    @things = Thing.where(user_id: params[:user_id]).order('up_votes DESC')
+    @things = Thing.where(user_id: params[:user_id]).order('num_up_votes DESC')
   end
 
   def show; end
@@ -14,7 +14,8 @@ class ThingsController < ApplicationController
   def edit; end
 
   def create
-    @thing = current_user.things.build(thing_params)
+    @thing = Thing.new thing_params
+    @thing.user_id = current_user.id
 
     if @thing.save
       flash[:notice] = 'Huzzah! Saved your thing! 😜'
@@ -48,14 +49,14 @@ class ThingsController < ApplicationController
   def upvote
     upvote = @thing.upvotes.find_or_create_by(user: current_user)
     upvote.save
-    Thing.increment_counter(:up_votes, @thing.id)
+    Thing.increment_counter(:num_up_votes, @thing.id)
     redirect_to root_path
   end
 
   def undo_upvote
     upvote = @thing.upvotes.find_by(user: current_user)
     upvote.destroy
-    Thing.decrement_counter(:up_votes, @thing.id)
+    Thing.decrement_counter(:num_up_votes, @thing.id)
     redirect_to root_path
   end
 

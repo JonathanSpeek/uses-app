@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_28_225859) do
+ActiveRecord::Schema.define(version: 2020_03_30_154759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,15 +20,18 @@ ActiveRecord::Schema.define(version: 2020_03_28_225859) do
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.integer "up_votes", default: 0
+    t.bigint "user_id"
+    t.integer "num_up_votes", default: 0
+    t.index ["user_id"], name: "index_things_on_user_id"
   end
 
   create_table "upvotes", force: :cascade do |t|
-    t.string "user_id"
-    t.string "thing_id"
+    t.bigint "user_id"
+    t.bigint "thing_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["thing_id"], name: "index_upvotes_on_thing_id"
+    t.index ["user_id"], name: "index_upvotes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
