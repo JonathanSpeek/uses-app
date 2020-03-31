@@ -2,17 +2,23 @@
 <ul>
   <% @things.each do |thing| %>
     <li>
+      <%= link_to image_tag(thing.user.profile_image, class: 'profile_image', size: '32x32', alt: thing.user.name), things_path(:user_id => thing.user), {class: 'no-underline'} %>
       <%= link_to thing.text, thing.link, target: '_blank', class: 'external-link' %>
-      <% if current_user.already_upvoted?(thing) %>
+      <% if current_user && current_user.already_upvoted?(thing) %>
         <%= link_to undo_upvote_thing_path(thing), class: 'unlike no-underline' do %>
           <span class='sr-only'>Unlike</span>
-          <%= thing.up_votes %>
-        <% end %>  
-      <% else %>
+          <%= thing.num_up_votes %>
+        <% end %>
+      <% elsif current_user && !current_user.already_upvoted?(thing) %>
         <%= link_to upvote_thing_path(thing), class: 'like no-underline' do %>
           <span class='sr-only'>Like</span>
-          <%= thing.up_votes %>
-        <% end %> 
+          <%= thing.num_up_votes %>
+        <% end %>
+      <% else %>
+        <a class='unlike no-underline'>
+          <span class='sr-only'>Like</span>
+          <%= thing.num_up_votes %>
+        </a>
       <% end %>
 
       <% if current_user == thing.user %>
@@ -32,7 +38,3 @@
     </li>
   <% end %>
 </ul>
-<br />
-<% if current_user == @things.last.user %>
-  <%= link_to 'Add a thing', new_thing_path, class: 'btn' %>
-<% end %>
