@@ -22,6 +22,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:github_url, :twitter_url, :websit_url, :user_id)
+    params.require(:user).permit(:github_url, :twitter_url, :website_url, :user_id)
   end
 end
