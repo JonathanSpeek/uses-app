@@ -1,0 +1,42 @@
+<h1><%= current_user && current_user.name %>'s Profile</h1>
+<%= form_with model: @user, local: true do |form| %>
+
+  <div class='form'>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@user.errors.count, "error") %> prohibited
+          this profile from being saved:
+        </h2>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>
+      <%= form.label :twitter_url %><br>
+      <%= form.text_field :twitter_url, placeholder: 'https://twitter.com/jonspeek' %>
+    </p>
+    <p>
+      <%= form.label :github_url %><br>
+      <%= form.text_field :github_url, placeholder: 'https://twitter.com/jonathanspeek' %>
+    </p>
+    <p>
+      <%= form.label :dev_url %><br>
+      <%= form.text_field :dev_url, placeholder: 'https://dev.to/jonathanspeek' %>
+    </p>
+    <p>
+      <%= form.label :linkedin_url %><br>
+      <%= form.text_field :linkedin_url, placeholder: 'https://www.linkedin.com/in/jonathanspeek/' %>
+    </p>
+    <p>
+      <%= form.label :website_url %><br>
+      <%= form.text_field :website_url %>
+    </p>
+
+      <%= form.submit 'Save profile', class: 'btn' %>
+  </div>
+<% end %>

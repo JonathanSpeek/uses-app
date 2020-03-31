@@ -18,6 +18,7 @@
     <% if current_user.profile_image %>
       <li><%= link_to image_tag(current_user.profile_image, class: 'profile_image', size: '48x48', alt: current_user.name), things_path(user_id: current_user), {class: 'no-underline'} %></li>
     <% end %>
+    <li><%= link_to 'Edit profile', edit_user_path(current_user) %>
   <% end %>
   </ul>
 </nav>
