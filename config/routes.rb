@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only: [:edit, :update, :destroy]
+
   get 'auth/:provider/callback', to: 'sessions#create'
 
   root 'welcome#index'
