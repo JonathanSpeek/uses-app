@@ -256,3 +256,19 @@ nav {
   border: 2px solid $primary-color;
   vertical-align: middle;
 }
+
+.flash-msg {
+  padding: 8px;
+  background-color: $primary-color;
+  border-radius: 6px;
+  color: $white;
+  width: max-content;
+  margin-bottom: 16px;
+}
+
+#error_explanation {
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}

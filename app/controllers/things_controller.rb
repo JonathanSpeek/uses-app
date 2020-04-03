@@ -49,16 +49,26 @@ class ThingsController < ApplicationController
 
   def upvote
     upvote = @thing.upvotes.find_or_create_by(user: current_user)
-    upvote.save
-    Thing.increment_counter(:num_up_votes, @thing.id)
-    redirect_to root_path
+    if upvote.save
+      Thing.increment_counter(:num_up_votes, @thing.id)
+      flash[:notice] = "Someone's feeling the love 🥰"
+      redirect_to root_path
+    else
+      flash[:notice] = 'Hmm... Something went wrong. 🤔'
+      redirect_to root_path
+    end
   end
 
   def undo_upvote
     upvote = @thing.upvotes.find_by(user: current_user)
-    upvote.destroy
-    Thing.decrement_counter(:num_up_votes, @thing.id)
-    redirect_to root_path
+    if upvote.destroy
+      Thing.decrement_counter(:num_up_votes, @thing.id)
+      flash[:notice] = "Guess you didn't really like that thing 🥺"
+      redirect_to root_path
+    else
+      flash[:notice] = 'Hmm... Something went wrong. 🤔'
+      redirect_to root_path
+    end
   end
 
   private

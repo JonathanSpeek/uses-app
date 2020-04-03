@@ -17,12 +17,12 @@
 
     <p>
       <%= form.label :text %><br>
-      <%= form.text_field :text %>
+      <%= form.text_field :text, placeholder: '4K 32" Dell Monitor'  %>
     </p>
 
     <p>
       <%= form.label :link %><br>
-      <%= form.text_field :link %>
+      <%= form.text_field :link, placeholder: 'https://amazon.com' %>
     </p>
 
       <%= form.submit 'Save thing', class: 'btn' %>
