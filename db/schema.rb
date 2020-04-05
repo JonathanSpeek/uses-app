@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_010411) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.integer "num_up_votes", default: 0
-    t.boolean "whish_list", default: false
+    t.boolean "wish_list", default: false
     t.index ["user_id"], name: "index_things_on_user_id"
   end
 
