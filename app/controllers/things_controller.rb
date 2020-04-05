@@ -2,7 +2,8 @@ class ThingsController < ApplicationController
   before_action :find_thing, only: %i[show edit update destroy upvote undo_upvote]
 
   def index
-    @things = Thing.where(user_id: params[:user_id]).order('num_up_votes DESC')
+    @things = Thing.where(user_id: params[:user_id]).where(wish_list: false).order('num_up_votes DESC')
+    @wish_list = Thing.where(user_id: params[:user_id]).where(wish_list: true).order('num_up_votes DESC')
     @user = User.find(params[:user_id])
   end
 
@@ -78,6 +79,6 @@ class ThingsController < ApplicationController
   end
 
   def thing_params
-    params.require(:thing).permit(:text, :link, :user_id)
+    params.require(:thing).permit(:text, :link, :wish_list, :user_id)
   end
 end
