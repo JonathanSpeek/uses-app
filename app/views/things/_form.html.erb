@@ -25,6 +25,11 @@
       <%= form.text_field :link, placeholder: 'https://amazon.com' %>
     </p>
 
+    <p>
+      <%= form.label :wish_list, 'Wish list' %><br>
+      <%= form.check_box :wish_list, class: 'checkbox' %>
+    </p>
+
       <%= form.submit 'Save thing', class: 'btn' %>
   </div>
 <% end %>

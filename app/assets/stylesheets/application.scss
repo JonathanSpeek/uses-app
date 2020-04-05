@@ -220,6 +220,13 @@ label {
   line-height: 24px;
 }
 
+.checkbox {
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+  width: auto;
+  height: auto;
+}
+
 .form {
   max-width: 40vw;
   @media screen and (max-width: 580px) {
