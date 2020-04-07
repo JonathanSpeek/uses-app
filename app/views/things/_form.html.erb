@@ -17,17 +17,29 @@
 
     <p>
       <%= form.label :text %><br>
-      <%= form.text_field :text, placeholder: '4K 32" Dell Monitor'  %>
+      <% if params[:text] %>
+        <%= form.text_field :text, placeholder: '4K 32" Dell Monitor', value: params[:text]  %>
+      <% else %>
+        <%= form.text_field :text, placeholder: '4K 32" Dell Monitor' %>
+      <% end %>
     </p>
 
     <p>
       <%= form.label :link %><br>
-      <%= form.text_field :link, placeholder: 'https://amazon.com' %>
+      <% if params[:link] %>
+        <%= form.text_field :link, placeholder: 'https://amazon.com', value: params[:link]  %>
+      <% else %>
+        <%= form.text_field :link, placeholder: 'https://amazon.com' %>
+      <% end %>
     </p>
 
     <p>
       <%= form.label :wish_list, 'Wish list' %><br>
-      <%= form.check_box :wish_list, class: 'checkbox' %>
+      <% if params[:link] %>
+        <%= form.check_box :wish_list, checked: params[:wish_list].to_i.zero? || false, class: 'checkbox' %>
+      <% else %>
+        <%= form.check_box :wish_list, class: 'checkbox' %>
+      <% end %>
     </p>
 
       <%= form.submit 'Save thing', class: 'btn' %>
