@@ -1,5 +1,5 @@
 class ThingsController < ApplicationController
-  before_action :find_thing, only: %i[show edit update destroy upvote undo_upvote]
+  before_action :find_thing, only: %i[show edit update destroy upvote undo_upvote add_to_wishlist]
 
   def index
     @things = Thing.where(user_id: params[:user_id]).where(wish_list: false).order('num_up_votes DESC')
@@ -69,6 +69,19 @@ class ThingsController < ApplicationController
     else
       flash[:notice] = 'Hmm... Something went wrong. 🤔'
       redirect_to root_path
+    end
+  end
+
+  def add_to_wishlist
+    @thing = Thing.new thing_params
+    @thing.user_id = current_user.id
+
+    if @thing.save
+      flash[:notice] = 'Huzzah! Saved your thing! 😜'
+      redirect_to things_path(user_id: current_user)
+    else
+      flash[:notice] = 'Hmm... Something went wrong. 🤔'
+      render 'new'
     end
   end
 
