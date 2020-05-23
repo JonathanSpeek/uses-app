@@ -321,6 +321,25 @@ nav {
   vertical-align: middle;
 }
 
+.social-links {
+  justify-self: center;
+  margin: 24px 0 32px 0;
+}
+
+.profile-page-image {
+  justify-self: center;
+  margin: 80px 0 24px 0;
+}
+
+.profile-page-heading {
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 42px;
+  text-align: center;
+  color: #FFFFFE;
+  margin: 32px 0;
+}
+
 .flash-msg {
   padding: 8px;
   background-color: $primary-color;
